@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Aswini &amp; Maheswaran · 22 November 2026</title>
+<meta name="description" content="Together with their families — Aswini &amp; Maheswaran invite you to their wedding celebrations, 22–23 November 2026, Puducherry.">
+<meta name="theme-color" content="#7A2230">
+<meta property="og:title" content="Aswini &amp; Maheswaran · Wedding Invitation">
+<meta property="og:description" content="Tap to open our invitation — Haldi, Mehendi, Sangeet &amp; the Wedding · November 2026">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/main_poster.jpg">
+<link rel="preload" as="image" href="img/envelope.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Marcellus&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+ <!-- ✅ stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+<div class="wrap">
+
+  <!-- ========== 1. ENTRY — the sealed envelope ========== -->
+  <div class="gate-stage" id="stage">
+
+    <video id="entryVid" playsinline preload="auto" poster="img/main_poster.jpg">
+      <source src="media/main.mp4" type="video/mp4">
+    </video>
+
+    <div class="envbox" id="envbox">
+      <img id="envBase" src="img/envelope.jpg" alt="A sealed wedding invitation envelope — tap the seal to open">
+      <span id="sealRing" aria-hidden="true"></span>
+
+      <button id="envSeal" type="button" aria-label="Tap the seal to open the invitation">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="wax" cx="36%" cy="30%" r="78%">
+              <stop offset="0" stop-color="#fbecc4"/><stop offset=".34" stop-color="#e3bd72"/>
+              <stop offset=".72" stop-color="#c19a48"/><stop offset="1" stop-color="#8a6320"/>
+            </radialGradient>
+            <linearGradient id="rimg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff3d2"/><stop offset="1" stop-color="#a37a2c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="url(#wax)"/>
+          <circle cx="50" cy="50" r="47" fill="none" stroke="url(#rimg)" stroke-width="1.6" opacity=".85"/>
+          <circle cx="50" cy="50" r="39" fill="none" stroke="#8a6320" stroke-width="1.1" opacity=".55"/>
+          <circle cx="50" cy="50" r="37" fill="none" stroke="#fbecc4" stroke-width=".8" opacity=".45"/>
+          <path d="M50 17c1 3 2.4 5 4.3 6.2-1.9 1.2-3.3 3.2-4.3 6.2-1-3-2.4-5-4.3-6.2C47.6 22 49 20 50 17Z" fill="#8a6320" opacity=".5"/>
+          <text id="sealMono" x="50" y="50" text-anchor="middle" dominant-baseline="central"
+                font-family="Cormorant Garamond, serif" font-style="italic" font-weight="600"
+                font-size="30" fill="#7d5613" opacity=".82">N &amp; S</text>
+          <text x="50" y="49.3" text-anchor="middle" dominant-baseline="central"
+                font-family="Cormorant Garamond, serif" font-style="italic" font-weight="600"
+                font-size="30" fill="#fff0cd" opacity=".38" id="sealMono2">N &amp; S</text>
+        </svg>
+      </button>
+
+      <div class="env-cap">
+        <div class="env-names" id="introNames">Aswini &amp; Maheswaran</div>
+        <div class="env-hint" id="envHint">Tap the seal to open</div>
+      </div>
+    </div>
+
+    <div id="goldFill" aria-hidden="true"></div>
+    <button id="entrySkip" type="button">Skip &#9654;</button>
+
+    <div class="scroll-cue" id="cue">
+      <p class="ef-lead">The celebrations to come</p>
+      <div class="ef-list" id="efList"></div>
+      <button id="scrollBtn" type="button">
+        Scroll down
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== 2. THE COUPLE ========== -->
+  <section class="couple paper" id="couple">
+    <div class="cpl-in">
+      <p class="cpl-lead">Two families, two hearts,<br>one beautiful journey</p>
+      <svg class="cpl-orn" viewBox="0 0 200 26" fill="none" aria-hidden="true"><path d="M8 13H74" stroke="#A98A46" stroke-width="1"/><path d="M126 13H192" stroke="#A98A46" stroke-width="1"/><path d="M100 3C92 9 92 17 100 23C108 17 108 9 100 3Z" fill="#D3A03E"/><circle cx="100" cy="13" r="3.2" fill="#9A3340"/><circle cx="84" cy="13" r="2.2" fill="#C9456F"/><circle cx="116" cy="13" r="2.2" fill="#C9456F"/><circle cx="74" cy="13" r="1.4" fill="#A98A46"/><circle cx="126" cy="13" r="1.4" fill="#A98A46"/></svg>
+      <div class="cpl-name" id="cplB">Aswini</div>
+      <div class="cpl-amp" aria-hidden="true"><i></i><span>&amp;</span><i></i></div>
+      <div class="cpl-name" id="cplA">Maheswaran</div>
+      <p class="cpl-quote">&ldquo;Where love finds its home in tradition,<br>and two hearts become one forever.&rdquo;</p>
+      <div class="cpl-facts">
+        <div><h4>When</h4><p id="cplDate">22 November 2026</p></div>
+        <div class="rule"></div>
+        <div><h4>Muhurtham</h4><p id="cplTime">06:00&ndash;07:30 am</p></div>
+        <div class="rule"></div>
+        <div><h4>Where</h4><p id="cplWhere">Puducherry</p></div>
+      </div>
+      <span class="cpl-tag" id="cplTag">#MaheswaranWedsAswini</span>
+    </div>
+  </section>
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 200 40" fill="none">
+      <path d="M10 20 H80" stroke="#A98A46" stroke-width="1"/><path d="M120 20 H190" stroke="#A98A46" stroke-width="1"/>
+      <path d="M100 8 C92 16 92 24 100 32 C108 24 108 16 100 8 Z" fill="#B08A3E"/>
+      <circle cx="100" cy="20" r="4.5" fill="#D3A03E"/>
+      <circle cx="86" cy="20" r="2" fill="#C9456F"/><circle cx="114" cy="20" r="2" fill="#C9456F"/>
+    </svg>
+  </div>
+
+    <!-- ========== MAIN WEDDING INVITE IMAGE ========== -->
+  <section class="main-invite-sec paper" id="mainInvite">
+    <div class="main-invite-frame reveal">
+      <img src="img/wedding_invite.jpg" 
+           alt="Wedding Invitation of Maheswaran & Aswini - 22 November 2026 at Thiruvandipuram Kovil, Cuddalore" 
+           loading="lazy">
+    </div>
+  </section>
+
+
+
+  <!-- ========== 3. TIMELINE ========== -->
+  <section class="tlpage" id="timeline">
+    <div class="tlimg" id="tlImgWrap">
+      <img class="art" src="img/timeline.jpg" alt="Our celebration timeline — Haldi 24 Nov 12:30 PM, Mehendi 24 Nov 6:30 PM, Sangeet 25 Nov 7:00 PM, The Wedding 22 Nov 2026, Muhurtham 9:15–10:00 AM">
+      <span id="tlLotus" aria-hidden="true"><img src="art/lotus.png" alt="" draggable="false"></span>
+    </div>
+  </section>
+
+
+
+  <!-- ========== 4. THE FIVE INVITES ========== -->
+  <section class="invsec" id="invites">
+    <div class="sec-head reveal"><p class="eyebrow">One by one</p><h2>Our Invitations</h2></div>
+    <div id="cardStack"></div>
+  </section>
+
+
+
+  <section class="count">
+    <p class="eyebrow">Counting down to the Muhurtham</p>
+    <div class="cd" id="cd">
+      <div class="u"><div class="num" id="d">--</div><div class="lab">Days</div></div>
+      <div class="u"><div class="num" id="h">--</div><div class="lab">Hours</div></div>
+      <div class="u"><div class="num" id="m">--</div><div class="lab">Mins</div></div>
+      <div class="u"><div class="num" id="s">--</div><div class="lab">Secs</div></div>
+    </div>
+    <p class="cd-note">“Two souls, one heart, one beautiful journey.”</p>
+  </section>
+
+  <section class="vrsvp" id="venueSec">
+    <img class="art" src="img/venue_rsvp.jpg" alt="The Venue — Taj Mahal Palace, Mumbai. Apollo Bunder, Colaba, Mumbai, Maharashtra 400001. Thursday 22 November 2026, Muhurtham 9:15–10:00 am. All celebrations are held here. Will you join us? Kindly reply by 10 November 2026.">
+
+    <a id="vDir" class="vf" target="_blank" rel="noopener" href="index.html#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      Get directions
+    </a>
+  
+  </section>
+  <footer class="foot">
+    <div class="om">&#2384;</div>
+    <div class="sig" id="footSig">Maheswaran &amp; Aswini</div>
+    <p class="made">Made with love</p>
+  </footer>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button>
+  <div class="lb-stage" id="lbStage">
+    <video id="lbVid" playsinline muted preload="none"></video>
+    <canvas id="lbCanvas"></canvas>
+    <div class="lb-tap" id="lbTap"></div>
+    <div class="lb-coach" id="lbCoach" aria-hidden="true"></div>
+    <button class="lb-replay" id="lbReplay" type="button" aria-label="Play again"></button>
+    <button class="lb-skip" id="lbSkip" type="button">Reveal ▸</button>
+    <div class="lb-hint" id="lbHint"></div>
+  </div>
+</div>
+
+ 
+
+        <!-- ===== VENUE SECTION ===== -->
+    <section class="venue paper">
+      <div class="mandala">✦</div>
+      <p class="eyebrow">THE VENUES</p>
+      <div class="venue-divider"></div>
+      <!-- Location 1: Temple -->
+      <h2>Thiruvandipuram Kovil</h2>
+      <p>Cuddalore</p>
+      <a class="map-btn" 
+         href="https://maps.app.goo.gl/q8UdLxnLqafQBDTA9" 
+         target="_blank" 
+         rel="noopener noreferrer">GET DIRECTIONS To Temple</a>
+      <div class="venue-divider"></div>
+      <!-- Location 2: Reception -->
+      <h2>Anandha Kalyana Mandapam</h2>
+      <p>Puducherry</p>
+      <a class="map-btn" 
+         href="https://maps.app.goo.gl/wBoz4UePsPLny3v68" 
+         target="_blank" 
+         rel="noopener noreferrer">GET DIRECTIONS To Reception</a>
+      
+    </section>
+
+
+  <div id="chips"></div>
+ <!-- ✅ script at the end of <body> so the DOM exists when it runs -->
+  <script src="script.js"></script>
+
+</body>
+</html>
