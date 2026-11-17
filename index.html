@@ -14,20 +14,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Marcellus&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>
+
 
  <!-- ✅ stylesheet -->
   <link rel="stylesheet" href="style.css">
 
 
 </head>
-<body>
+<body class="no-scroll">
+ 
 <canvas id="petals" aria-hidden="true"></canvas>
 <div class="wrap">
 
   <!-- ========== 1. ENTRY — the sealed envelope ========== -->
   <div class="gate-stage" id="stage">
 
-    <video id="entryVid" playsinline preload="auto" poster="img/main_poster.jpg">
+    <video id="entryVid" playsinline preload="metadata" poster="img/main_poster.jpg">
       <source src="media/main.mp4" type="video/mp4">
     </video>
 
@@ -110,7 +118,7 @@
     <!-- ========== MAIN WEDDING INVITE IMAGE ========== -->
   <section class="main-invite-sec paper" id="mainInvite">
     <div class="main-invite-frame reveal">
-      <img src="img/wedding_invite.jpg" 
+      <img src="img/wedding_invite.jpg" loading="lazy" decoding="async"
            alt="Wedding Invitation of Maheswaran & Aswini - 22 November 2026 at Thiruvandipuram Kovil, Cuddalore" 
            loading="lazy">
     </div>
@@ -121,7 +129,7 @@
   <!-- ========== 3. TIMELINE ========== -->
   <section class="tlpage" id="timeline">
     <div class="tlimg" id="tlImgWrap">
-      <img class="art" src="img/timeline.jpg" alt="Our celebration timeline — Haldi 24 Nov 12:30 PM, Mehendi 24 Nov 6:30 PM, Sangeet 25 Nov 7:00 PM, The Wedding 22 Nov 2026, Muhurtham 9:15–10:00 AM">
+      <img class="art" src="img/timeline.jpg" alt="Our celebration timeline — Haldi 24 Nov 12:30 PM, Mehendi 24 Nov 6:30 PM, Sangeet 25 Nov 7:00 PM, The Wedding 22 Nov 2026, Muhurtham 9:15–10:00 AM" loading="lazy" decoding="async">
       <span id="tlLotus" aria-hidden="true"><img src="art/lotus.png" alt="" draggable="false"></span>
     </div>
   </section>
@@ -148,7 +156,7 @@
   </section>
 
   <section class="vrsvp" id="venueSec">
-    <img class="art" src="img/venue_rsvp.jpg" alt="The Venue — Taj Mahal Palace, Mumbai. Apollo Bunder, Colaba, Mumbai, Maharashtra 400001. Thursday 22 November 2026, Muhurtham 9:15–10:00 am. All celebrations are held here. Will you join us? Kindly reply by 10 November 2026.">
+    <img class="art" src="img/venue_rsvp.jpg" alt="The Venue — Taj Mahal Palace, Mumbai. Apollo Bunder, Colaba, Mumbai, Maharashtra 400001. Thursday 22 November 2026, Muhurtham 9:15–10:00 am. All celebrations are held here. Will you join us? Kindly reply by 10 November 2026." loading="lazy" decoding="async">
 
     <a id="vDir" class="vf" target="_blank" rel="noopener" href="index.html#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -159,7 +167,7 @@
   <footer class="foot">
     <div class="om">&#2384;</div>
     <div class="sig" id="footSig">Maheswaran &amp; Aswini</div>
-    <p class="made">Made with love</p>
+    <p class="made">Made this einvite with love by Kuganathan </p>
   </footer>
 </div>
 
@@ -204,7 +212,13 @@
 
   <div id="chips"></div>
  <!-- ✅ script at the end of <body> so the DOM exists when it runs -->
-  <script src="script.js"></script>
+  <script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+</script>
+ <script src="script.js?v=3"></script>
 
 </body>
 </html>

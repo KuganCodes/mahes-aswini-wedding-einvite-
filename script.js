@@ -1,4 +1,3 @@
-
 /* ============================================================
    EDIT EVERYTHING HERE — no other code changes needed
    ============================================================ */
@@ -16,7 +15,7 @@ coupleB: { name:"Maheswaran", short:"Maheswaran" },
   venueAddress:" Puducherry",
   mapQuery:"Anandha Kalyana Mandapam Puducherry",
 
-  mapLink:"",
+  mapLink:"https://maps.app.goo.gl/MjBX44STNb2T1rc8A",
 
   /* ↓↓↓ REPLACE THESE TWO WITH THE FAMILY'S REAL NUMBER ↓↓↓
      familyWhatsApp: country code + number, digits only (e.g. "919876543210")
@@ -267,6 +266,16 @@ function sparkleStage(host){
       cue=document.getElementById('cue');
   var opened=false, filmOn=false, finished=false;
 
+  /* ✅ SCROLL UNLOCK — page stays locked until the invite is opened */
+  function unlockScroll(){
+    document.body.classList.remove('no-scroll');
+    document.body.style.overflow='';
+    document.body.style.height='';
+    document.documentElement.style.overflow='';
+    document.documentElement.style.height='';
+  }
+  window.unlockScroll=unlockScroll;
+
   /* the celebrations, listed under the film so guests know what follows */
   (function(){
     var list=document.getElementById('efList');
@@ -281,6 +290,7 @@ function sparkleStage(host){
   /* the film does not disappear — it holds on its last frame and the guest scrolls on */
   function finish(){
     if(finished)return; finished=true;
+    unlockScroll();                        /* ✅ definitely scrollable once we reach the cue */
     skip.classList.remove('show');
     try{v.pause();}catch(e){}
     musicBloom();                          /* the song takes over as the film bows out */
@@ -301,6 +311,7 @@ function sparkleStage(host){
 
   function open(){
     if(opened)return; opened=true;
+    unlockScroll();                        /* ✅ allow scrolling now that the invite is opening */
     musicClaim();
      musicBloom();                            /* unlock audio while we still have the tap */
     ring.classList.add('go');
@@ -779,3 +790,16 @@ var io=new IntersectionObserver(function(es){
   es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* ===== safety net: never leave the page unscrollable ===== */
+setTimeout(function(){
+  if(document.body.classList.contains('no-scroll')){
+    /* Only auto-unlock if the user is no longer on the envelope stage.
+       If the film has finished playing (or never started), unlock. */
+    var stage=document.getElementById('stage');
+    var v=document.getElementById('entryVid');
+    var finished=(!stage) || stage.style.display==='none' ||
+                 (v && (v.ended || (v.duration && v.currentTime>=v.duration-0.3)));
+    if(finished && typeof window.unlockScroll==='function') window.unlockScroll();
+  }
+},8000);

@@ -383,7 +383,7 @@
   /* every position below was measured off img/venue_rsvp.jpg (954 x 1649) so each
      live control lands exactly on top of the one that was painted underneath it */
   .vrsvp{position:relative;line-height:0;container-type:inline-size}
-  .vrsvp>img.art{width:100%;height:auto;display:block;vertical-align:top}
+  .vrsvp>img.art{width:100%;height:auto;display:block}
   .vf{position:absolute;z-index:4;line-height:1.2;font-family:var(--body);box-sizing:border-box}
 
   /* drawn button: 34.80%..65.30% x, 37.36%..40.15% y — the live one covers it */
@@ -677,6 +677,79 @@
       margin: 42px auto;          /* ← bigger margin above and below */
       opacity: 0.5;
     }
+
+  /* ===== MOBILE AND SMALL-VIEWPORT REFINEMENTS ===== */
+  .wrap{width:100%;max-width:480px}
+  img,video{max-width:100%}
+  button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  button:focus-visible,a:focus-visible{outline:2px solid var(--marigold);outline-offset:3px}
+
+  .gate-stage{min-height:min(520px,100svh);padding-top:env(safe-area-inset-top)}
+  .envbox{width:min(100%,calc(100svh * 941 / 1672));max-height:100svh}
+  #entrySkip{top:calc(env(safe-area-inset-top) + 12px);right:calc(env(safe-area-inset-right) + 12px);min-height:44px}
+  .scroll-cue{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+  #scrollBtn{min-height:46px;padding-inline:22px;letter-spacing:.16em}
+
+  .main-invite-sec{padding:clamp(22px,6vw,34px) 14px 12px}
+  .main-invite-frame{max-width:400px;width:100%}
+  .main-invite-frame img{height:auto;object-fit:contain}
+  .couple{padding:32px 18px 36px}
+  .cpl-name{font-size:clamp(30px,8.5vw,44px)}
+  .cpl-tag{max-width:100%;overflow-wrap:anywhere;letter-spacing:.1em}
+  .evcard{width:calc(100% - 24px);margin-bottom:26px}
+  .evcard:hover{transform:none}
+  .ov-cta{min-height:44px;justify-content:center}
+  .count{padding:clamp(30px,8vw,40px) 14px}
+  .cd{gap:clamp(5px,2vw,9px)}
+  .cd .u{min-width:0;padding:12px 3px}
+  .cd .num{font-size:clamp(22px,7vw,27px);font-variant-numeric:tabular-nums}
+  .cd .lab{font-size:clamp(8px,2.4vw,9px);letter-spacing:.1em}
+  .cd-note{font-size:clamp(14px,4.2vw,16px)}
+
+  .lightbox{min-height:100vh;min-height:100dvh;padding:
+    max(12px,env(safe-area-inset-top))
+    max(12px,env(safe-area-inset-right))
+    max(12px,env(safe-area-inset-bottom))
+    max(12px,env(safe-area-inset-left));overflow:auto}
+  .lb-stage{max-width:100%;max-height:100%}
+  #lbVid{height:min(82vh,82dvh,calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px));
+    max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px);
+    max-width:calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right) - 24px)}
+  .lb-close{top:calc(env(safe-area-inset-top) + 10px);right:calc(env(safe-area-inset-right) + 10px);width:46px;height:46px}
+  .lb-skip{min-height:44px;padding:10px 14px}
+  .lb-hint{bottom:calc(10px + env(safe-area-inset-bottom));padding:0 12px}
+  #musicBtn{right:calc(env(safe-area-inset-right) + 12px);bottom:calc(env(safe-area-inset-bottom) + 12px);width:48px;height:48px}
+
+  .venue{padding:42px 18px calc(42px + env(safe-area-inset-bottom))}
+  .venue .eyebrow{margin-bottom:24px}
+  .venue h2{padding-inline:0;overflow-wrap:anywhere}
+  .map-btn{max-width:100%;min-height:48px;padding:14px 20px;letter-spacing:.1em}
+  .foot{padding:24px 18px calc(30px + env(safe-area-inset-bottom))}
+  .foot .made{font-size:10px;letter-spacing:.12em;line-height:1.6}
+
+  @media(max-width:380px){
+    .couple{padding-inline:14px}
+    .cpl-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+    .cpl-facts .rule{display:none}
+    .cpl-facts>div:not(.rule){min-width:0;padding:8px 3px;border:1px solid rgba(169,138,70,.22);border-radius:8px;background:rgba(255,252,243,.58)}
+    .cpl-facts h4{font-size:8px;letter-spacing:.12em;margin-bottom:5px}
+    .cpl-facts p{font-size:clamp(11px,3.4vw,13px);overflow-wrap:anywhere}
+    .ef-list{gap:5px;margin:8px 0 11px}
+    .ef-list span{font-size:9px;padding:6px 9px}
+    .lb-coach{padding-inline:18px}
+    .lb-coach .big{font-size:clamp(22px,7vw,27px)}
+  }
+
+  @media(max-height:520px) and (orientation:landscape){
+    .gate-stage{height:100vh;height:100svh;min-height:100svh;padding-top:0}
+    .envbox{width:auto;height:100%;max-height:100svh}
+    .scroll-cue{padding-top:38px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+    .scroll-cue .ef-list{margin:5px 0 8px}
+    #scrollBtn{min-height:40px;padding-block:8px}
+    .lightbox{padding:10px}
+    #lbVid{height:calc(100dvh - 20px);max-height:calc(100dvh - 20px);max-width:calc(100vw - 20px)}
+  }
+
   @media(max-width:370px){
     .tlrow{column-gap:84px}.tldate{width:66px;height:66px}.tldate .dd{font-size:22px}
     .tlbody h3{font-size:12px}.tlbody .ln{font-size:11.5px}.intro-names{font-size:28px}
